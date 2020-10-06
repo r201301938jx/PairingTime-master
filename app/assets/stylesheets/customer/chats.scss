@@ -1,3 +1,51 @@
 // Place all the styles related to the customer::chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* チャットページ */
+
+.my-message {
+  text-align: right;
+  border: 1px solid #CD853F;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-left: 300px;
+  padding-right: 10px;
+}
+
+.opponent-message {
+  text-align: left;
+  border: 1px solid #CD853F;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-right: 300px;
+  padding-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* チャットページ */
+
+  .my-message {
+    margin-left: 100px;
+  }
+
+  .opponent-message {
+    margin-right: 100px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+
+  /* チャットページ */
+
+  .my-message {
+    margin-left: 50px;
+  }
+
+  .opponent-message {
+    margin-right: 50px;
+  }
+
+}

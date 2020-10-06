@@ -1,3 +1,63 @@
 // Place all the styles related to the customer::customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 会員詳細ページ */
+
+.customer-info {
+  border: 5px double #3F250B;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.customer-info p {
+  font-size: 20px;
+}
+
+.customer-info-data {
+  padding: 30px 0;
+}
+
+.customer-info-text {
+  padding: 10px 0;
+}
+
+/* 退会ページ */
+
+.sp-none {
+  display: none;
+}
+
+.quit-description h4 {
+  line-height: 30px;
+}
+
+.quit-item {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* 退会ページ */
+
+  .sp-none {
+    display: block;
+    padding-top: 10px;
+  }
+
+  /* 会員詳細ページ */
+
+  .customer-info p {
+    font-size: 12px;
+  }
+
+  .customer-info-data {
+    padding: 0;
+  }
+
+  .customer-info-text {
+    padding: 0;
+  }
+
+}

@@ -1,3 +1,29 @@
 // Place all the styles related to the customer::notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 通知一覧ページ */
+
+.notification-box {
+  border-top: 1px solid #3F250B;
+  border-bottom: 1px solid #3F250B;
+}
+
+.notification-message {
+  padding-top: 20px;
+}
+
+.notification-circle {
+  position: absolute;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* 通知一覧ページ */
+
+  .notification-message {
+    padding-top: 5px;
+  }
+
+}

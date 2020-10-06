@@ -288,100 +288,6 @@ footer {
   font-weight: bold;
 }
 
-/* トップページ */
-
-.top-heading {
-  margin-top: 10px;
-}
-
-.top-title {
-  font-size: 100px;
-}
-
-.top-description {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-
-.link-button {
-  margin-top: 30px;
-}
-
-.ranking-heading {
-  margin: 25px 0;
-}
-
-/* 概要ページ */
-
-.about-description {
-  line-height: 1px;
-}
-
-.about-description h4 {
-  line-height: 30px;
-}
-
-.how-to-use {
-  margin-top: 80px;
-}
-
-.how-to-use-item {
-  padding-bottom: 10px;
-}
-
-.how-to-use ul li {
-  list-style: square;
-}
-
-.image1 {
-  background-image: image-url("about-image1.jpg");
-}
-.image2 {
-  background-image: image-url("about-image2.jpg");
-}
-
-.image3 {
-  background-image: image-url("about-image3.jpg");
-}
-.image4 {
-  background-image: image-url("about-image4.jpg");
-}
-
-/* 会員詳細ページ */
-
-.customer-info {
-  border: 5px double #3F250B;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
-
-.customer-info p {
-  font-size: 20px;
-}
-
-.customer-info-data {
-  padding: 30px 0;
-}
-
-.customer-info-text {
-  padding: 10px 0;
-}
-
-/* 退会ページ */
-
-.sp-none {
-  display: none;
-}
-
-.quit-description h4 {
-  line-height: 30px;
-}
-
-.quit-item {
-  margin-bottom: 5px;
-}
-
 /* コメント */
 
 .comment-section {
@@ -396,42 +302,6 @@ footer {
   background-color: #fff;
   color: #3F250B;
   margin-left: 10px;
-}
-
-/* 通知一覧ページ */
-
-.notification-box {
-  border-top: 1px solid #3F250B;
-  border-bottom: 1px solid #3F250B;
-}
-
-.notification-message {
-  padding-top: 20px;
-}
-
-.notification-circle {
-  position: absolute;
-  padding-top: 20px;
-}
-
-/* チャットページ */
-
-.my-message {
-  text-align: right;
-  border: 1px solid #CD853F;
-  border-radius: 5px;
-  background-color: #fff;
-  margin-left: 300px;
-  padding-right: 10px;
-}
-
-.opponent-message {
-  text-align: left;
-  border: 1px solid #CD853F;
-  border-radius: 5px;
-  background-color: #fff;
-  margin-right: 300px;
-  padding-left: 15px;
 }
 
 /* ページング */
@@ -610,84 +480,6 @@ footer {
     width: 50px;
   }
 
-  /* トップページ */
-
-  .top-heading {
-    margin-top: 5px;
-  }
-
-  .top-title {
-    font-size: 55px;
-  }
-
-  .top-description {
-    font-size: 18px;
-    margin-bottom: 2px;
-  }
-
-  /* 概要ページ */
-
-  .about-page h1 {
-    font-size: 12px;
-  }
-
-  .about-page h4 {
-    font-size: 8px;
-  }
-
-  .about-description {
-    line-height: 1px;
-  }
-
-  .about-description h4 {
-    line-height: 15px;
-  }
-
-  .how-to-use {
-    margin-top: 30px;
-  }
-
-  .how-to-use-item {
-    padding-bottom: 2px;
-  }
-
-  /* 退会ページ */
-
-  .sp-none {
-    display: block;
-    padding-top: 10px;
-  }
-
-  /* 会員詳細ページ */
-
-  .customer-info p {
-    font-size: 12px;
-  }
-
-  .customer-info-data {
-    padding: 0;
-  }
-
-  .customer-info-text {
-    padding: 0;
-  }
-
-  /* 通知一覧ページ */
-
-  .notification-message {
-    padding-top: 5px;
-  }
-
-  /* チャットページ */
-
-  .my-message {
-    margin-left: 100px;
-  }
-
-  .opponent-message {
-    margin-right: 100px;
-  }
-
 }
 
 @media screen and (max-width: 576px) {
@@ -819,31 +611,6 @@ footer {
 
   .new-badge {
     margin: 25px 0 0 5px;
-  }
-
-  /* トップページ */
-
-  .top-heading {
-    margin: 0px;
-  }
-
-  .top-title {
-    font-size: 32px;
-  }
-
-  .top-description {
-    font-size: 12px;
-    margin-bottom: 2px;
-  }
-
-  /* チャットページ */
-
-  .my-message {
-    margin-left: 50px;
-  }
-
-  .opponent-message {
-    margin-right: 50px;
   }
 
 }
