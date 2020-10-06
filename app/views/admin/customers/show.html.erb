@@ -1,0 +1,79 @@
+<% provide(:title, "会員詳細") %>
+
+<div class="col-12 col-xs-12 col-sm-12">
+
+  <h2 class="heading text-center"><%= full_name(@customer)%>さんの会員詳細</h2>
+
+  <div class="col-12 col-xs-12 col-sm-4 text-center">
+    <div class="text-center">
+      <p>プロフィール画像</p>
+      <%= attachment_image_tag @customer, :profile_image, fallback: "no_customer_image.jpg", class: "profile-image circle"  %>
+    </div>
+  </div>
+
+  <div class="col-12 col-xs-12 col-sm-8">
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td>会員ID</td>
+          <td>
+            <%= @customer.id %>
+            <% if @customer.is_deleted == true %>
+              <span class="badge badge-danger">退会済</span>
+            <% else %>
+              <span class="badge badge-success">有効会員</span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= full_name(@customer) %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= full_name_kana(@customer) %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>ニックネーム</td>
+          <td><%= @customer.nickname %></td>
+        </tr>
+        <tr>
+          <td>登録日</td>
+          <td><%= @customer.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td>投稿数</td>
+          <td><%= @customer.pairs.count %></td>
+        </tr>
+        <tr>
+          <td>お気に入り数</td>
+          <td><%= @customer.likes.count %></td>
+        </tr>
+        <tr>
+          <td>フォロー数</td>
+          <td><%= @customer.follower.count %></td>
+        </tr>
+        <tr>
+          <td>フォロワー数</td>
+          <td><%= @customer.followed.count %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= link_to edit_admin_customer_path do %>
+      <p class="btn btn-brown btn-block">
+        <i class="fas fa-user-edit"> 会員情報を編集</i>
+      </p>
+      <% end %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,169 @@
+<% provide(:title, "会員詳細") %>
+
+<div class="row">
+
+  <div id="error_explanation">
+    <%= flash[:error] %>
+  </div>
+
+  <h2 class="heading text-center">会員詳細</h2>
+
+  <div class="col-12 col-xs-12 col-sm-12 text-center customer-info">
+
+    <div class="col-6 col-xs-6 col-sm-7">
+      <div class="col-12 col-xs-12 col-sm-6">
+        <h4><strong>会員情報</strong></h4>
+        <div>
+          <%= attachment_image_tag @customer, :profile_image, fallback: "no_customer_image.jpg", class: "show-profile-image circle"  %>
+        </div>
+      </div>
+      <div class="col-12 col-xs-12 col-sm-6 customer-info-data">
+        <div>
+          <p class="customer-info-text text-center"><strong><%= @customer.nickname %></strong></p>
+        </div>
+        <div>
+          <p class="customer-info-text text-center">フォロー数：<%= link_to @customer.follower.count, customer_follows_path(@customer) %></p>
+        </div>
+        <div>
+          <p class="customer-info-text text-center">フォロワー数：<%= link_to @customer.followed.count, customer_followers_path(@customer) %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-xs-6 col-sm-5">
+      <% if @customer == current_customer %>
+      <div class="link-button">
+        <%= link_to like_pairs_path do %>
+        <p class="btn btn-brown btn-lg btn-block faa-parent animated-hover">
+          <i class="fas fa-heart faa-wrench"></i> お気に入り一覧
+        </p>
+        <% end %>
+      </div>
+      <div class="link-button">
+        <%= link_to edit_customer_path(@customer) do %>
+        <p class="btn btn-brown btn-lg btn-block faa-parent animated-hover">
+          <i class="fas fa-user-edit faa-wrench"></i> 登録情報編集
+        </p>
+        <% end%>
+      </div>
+      <div class="link-button">
+        <%= link_to edit_customer_registration_path(@customer) do %>
+        <p class="btn btn-brown btn-lg btn-block faa-parent animated-hover">
+          <i class="fas fa-key faa-wrench"></i> パスワード変更
+        </p>
+        <% end %>
+      </div>
+      <% else %>
+      <div class="link-button">
+        <% if current_customer.following?(@customer) %>
+        <%= link_to "フォローをやめる", customer_relationships_path(@customer.id), method: :DELETE, class: "btn btn-danger btn-lg btn-block" %>
+        <% else %>
+        <%= link_to "フォローする", customer_relationships_path(@customer.id), method: :POST, class: "btn btn-brown btn-lg btn-block" %>
+        <% end %>
+      </div>
+      <div class="link-button">
+        <%= link_to chat_path(@customer.id) do %>
+        <p class="btn btn-brown btn-lg btn-block faa-parent animated-hover">
+          <i class="fas fa-comments faa-wrench"></i> チャットを始める
+        </p>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-12 col-xs-12 col-sm-12">
+
+    <% if current_customer == @customer %>
+    <ul id="tab-menu" class="customer-tab-menu clearfix">
+      <li><a href="#tab1" class="active">投稿一覧</a></li>
+      <li><a href="#tab2" class="">投稿数</a></li>
+      <li><a href="#tab3" class="">お気に入り数</a></li>
+      <li><a href="#tab4" class="">コメント数</a></li>
+      <li><a href="#tab5" class="">フォロワー数</a></li>
+    </ul>
+
+    <div id="tab-contents" class="clearfix">
+
+      <div id="tab1" class="tab">
+        <% if @pairs.exists? %>
+        <div id="jscroll">
+          <%= render 'customer/pairs/index', pairs: @pairs %>
+          <div><%= link_to_next_page @pairs, '次のページ', class: "next" %></div>
+        </div>
+        <% else %>
+        <h4>あなたの投稿はありません</h4>
+        <% end %>
+      </div>
+
+      <div id="tab2" class="tab">
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>あなたの投稿数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-camera-retro"></i> <%= @all_pairs.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>今日の新規投稿数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-camera-retro"></i> <%= @today_pairs.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-12">
+          <%= column_chart @pair_data, ytitle: "新規投稿数", colors: ["#8B4513"] %>
+        </div>
+      </div>
+
+      <div id="tab3" class="tab">
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>お気に入りに追加された数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-heart"></i> <%= @likes.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>今日お気に入りに追加された数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-heart"></i> <%= @today_likes.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-12">
+          <%= column_chart @like_data, ytitle: "新規お気に入り追加数", colors: ["#8B4513"] %>
+        </div>
+      </div>
+
+      <div id="tab4" class="tab">
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>あなたの投稿のコメント数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-comment"></i> <%= @comments.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>あなたの投稿の新規コメント数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-comment"></i> <%= @today_comments.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-12">
+          <%= column_chart @comment_data, ytitle: "新規コメント数", colors: ["#8B4513"] %>
+        </div>
+      </div>
+
+      <div id="tab5" class="tab">
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>フォロワー数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-user"></i> <%= @customer.followed.count %></strong></h3>
+        </div>
+        <div class="col-12 col-xs-12 col-sm-6 text-center panel panel-brown">
+          <h3 class="panel-heading"><strong>今日のフォロワー数</strong></h3>
+          <h3 class="panel-body"><strong><i class="fas fa-user"></i> <%= @today_followers.count %></strong></h3>
+        </div>
+        　<div class="col-12 col-xs-12 col-sm-12">
+          <%= column_chart @follower_data, ytitle: "新規フォロワー数", colors: ["#8B4513"] %>
+        </div>
+      </div>
+
+    </div>
+
+    <% else %>
+
+    <div id="jscroll">
+      <%= render 'customer/pairs/index', pairs: @pairs %>
+      <div><%= link_to_next_page @pairs, '次のページ', class: "next" %></div>
+    </div>
+
+    <% end %>
+
+  </div>
+
+</div>

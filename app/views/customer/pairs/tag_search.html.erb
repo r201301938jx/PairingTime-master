@@ -1,0 +1,37 @@
+<% provide(:title, "検索結果") %>
+
+<div class="row">
+
+  <h2 class="heading text-center">タグが「<%= @tag.name %>」の投稿一覧（全<%= @tag.pairs.count %>件）</h2>
+
+  <div class="col-12 col-xs-12 col-sm-3">
+    <h2 class="text-center"><strong><u>タグリスト</strong></u></h2>
+    <% @tag_list.each do |tag| %>
+    <% if tag.pairs.count > 0 %>
+    <span class="label label-brown"><%= link_to "#{tag.name}(#{tag.pairs.count})", tag_pairs_path(tag_id: tag.id) %></span>
+    <% end %>
+    <% end %>
+    <div class="text-center col-12 col-xs-12 col-sm-12"><%= paginate @tag_list, :param_name => 'tag_page' %></div>
+  </div>
+
+  <div class="col-12 col-xs-12 col-sm-9">
+    <% @pairs.each do |pair| %>
+    <div class="col-6 col-xs-6 col-sm-4 text-center">
+      <% if pair.created_at > 24.hours.ago %>
+      <span class="badge new-badge">New</span>
+      <% end %>
+      <%= link_to pair_path(pair) do %>
+      <%= attachment_image_tag pair, :image, fallback: "no_image.jpg", class: "pair-image circle" %>
+      <h6 class="sp-non-title"><%= pair.title %></h6>
+      <% if customer_signed_in? %>
+      <div id="index_like_button_<%= pair.id %>">
+        <%= render 'customer/likes/like_index', pair: pair %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <% end %>
+    <div class="text-center col-12 col-xs-12 col-sm-12"><%= paginate @pairs, :param_name => 'pair_page' %></div>
+  </div>
+
+</div>

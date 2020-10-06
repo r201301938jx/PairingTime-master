@@ -1,0 +1,849 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix:after{
+  content: "";
+  clear: both;
+  display: block;
+}
+
+body {
+  padding: 65px 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #F5DEB3;
+  color: #3F250B;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.circle {
+  border-radius: 50%;
+  border: 2px solid #CD853F;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #3F250B;
+}
+
+#back-to-top {
+  position: fixed;
+  right: 15px;
+  bottom: 65px;
+}
+
+.fa-arrow-circle-up{
+  color: #3F250B;
+}
+
+/* ヘッダー */
+
+header {
+  background-color: #3F250B;
+}
+
+header li i {
+  color: #fff;
+}
+
+.logo {
+  height: 60px;
+}
+
+.login-message {
+  margin: 25px 25px 0 0;
+}
+
+.navbar-nav li a:hover {
+  text-decoration: none;
+  background-color: #3F250B;
+}
+
+.notification-mark {
+  position: absolute;
+  margin-top: 15px;
+  z-index: 1;
+}
+
+/* フッター */
+
+footer {
+  background-color: #3F250B;
+  p {
+    padding-top: 15px;
+    color: #fff;
+  }
+}
+
+.share-button {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 10px;
+}
+
+.fa-facebook-square {
+  color: #3b5998;
+}
+
+.fa-line {
+  color: #00B900;
+}
+
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.btn-white {
+  background-color: #fff;
+}
+
+/* フラッシュメッセージ */
+
+#notice {
+  color: green;
+}
+
+#error_explanation {
+  color: red;
+}
+
+#error {
+  color: red;
+}
+
+/* フォーム */
+
+.form-group {
+  margin: 20px 0;
+}
+
+.actions {
+  margin: 30px 0;
+}
+
+/* 画像 */
+
+.about-image {
+  height: 320px;
+  width: 320px;
+  margin: 30px 0;
+}
+
+.profile-image {
+  height: 270px;
+  width: 270px;
+  margin-top: 10px;
+}
+
+.pair-image {
+  height: 270px;
+  width: 270px;
+  margin-top: 10px;
+}
+
+.show-profile-image {
+  height: 180px;
+  width: 180px;
+  margin-top: 10px;
+}
+
+.comment-profile-image {
+  height: 40px;
+  width: 40px;
+}
+
+.chat-profile-image {
+  height: 120px;
+  width: 120px;
+}
+
+.notification-profile-image {
+  height: 60px;
+  width: 60px;
+}
+
+/* バッジ */
+
+.badge-danger {
+  background-color: #dc3545;
+}
+
+.badge-success {
+  background-color: #28a745;
+}
+
+.badge-brown {
+  background-color: #CD853F;
+}
+
+.badge-primary {
+  background-color: #337ab7;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+}
+
+.new-badge {
+  position: absolute;
+  margin: 40px 0 0 5px;
+  background-color: #8B4513;
+}
+
+/* ボタン */
+
+.btn-brown {
+  background-color: #CD853F;
+  color: #fff;
+}
+
+.btn-brown:hover {
+  background-color: #8B4513;
+  color: #fff;
+}
+
+.btn-facebook {
+  background-color: #6277a1;
+  color: #fff;
+}
+
+.btn-facebook:hover {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.btn-twitter {
+  background-color: #6aafca;
+  color: #fff;
+}
+
+.btn-twitter:hover {
+  background-color: #55acee;
+  color: #fff;
+}
+
+/* ラベル */
+
+.label-brown {
+  background-color: #CD853F;
+}
+
+.label-brown a {
+  color: #fff;
+}
+
+/* パネル */
+
+.panel-brown {
+  border-color: #CD853F;
+}
+
+.panel-brown > .panel-heading {
+  color: #fff;
+  background-color: #8B4513;
+  border-color: #CD853F;
+}
+
+/* お気に入りアイコン */
+
+.red-heart {
+  color: red;
+  span {
+    color: #3F250B;
+  }
+}
+
+/* タイトル */
+
+.heading {
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* トップページ */
+
+.top-heading {
+  margin-top: 10px;
+}
+
+.top-title {
+  font-size: 100px;
+}
+
+.top-description {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.link-button {
+  margin-top: 30px;
+}
+
+.ranking-heading {
+  margin: 25px 0;
+}
+
+/* 概要ページ */
+
+.about-description {
+  line-height: 1px;
+}
+
+.about-description h4 {
+  line-height: 30px;
+}
+
+.how-to-use {
+  margin-top: 80px;
+}
+
+.how-to-use-item {
+  padding-bottom: 10px;
+}
+
+.how-to-use ul li {
+  list-style: square;
+}
+
+.image1 {
+  background-image: image-url("about-image1.jpg");
+}
+.image2 {
+  background-image: image-url("about-image2.jpg");
+}
+
+.image3 {
+  background-image: image-url("about-image3.jpg");
+}
+.image4 {
+  background-image: image-url("about-image4.jpg");
+}
+
+/* 会員詳細ページ */
+
+.customer-info {
+  border: 5px double #3F250B;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.customer-info p {
+  font-size: 20px;
+}
+
+.customer-info-data {
+  padding: 30px 0;
+}
+
+.customer-info-text {
+  padding: 10px 0;
+}
+
+/* 退会ページ */
+
+.sp-none {
+  display: none;
+}
+
+.quit-description h4 {
+  line-height: 30px;
+}
+
+.quit-item {
+  margin-bottom: 5px;
+}
+
+/* コメント */
+
+.comment-section {
+  padding-top: 40px;
+}
+
+.comment-title {
+  padding-bottom: 5px;
+}
+
+.comment-badge {
+  background-color: #fff;
+  color: #3F250B;
+  margin-left: 10px;
+}
+
+/* 通知一覧ページ */
+
+.notification-box {
+  border-top: 1px solid #3F250B;
+  border-bottom: 1px solid #3F250B;
+}
+
+.notification-message {
+  padding-top: 20px;
+}
+
+.notification-circle {
+  position: absolute;
+  padding-top: 20px;
+}
+
+/* チャットページ */
+
+.my-message {
+  text-align: right;
+  border: 1px solid #CD853F;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-left: 300px;
+  padding-right: 10px;
+}
+
+.opponent-message {
+  text-align: left;
+  border: 1px solid #CD853F;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-right: 300px;
+  padding-left: 15px;
+}
+
+/* ページング */
+
+.next {
+  display: none;
+}
+
+.pagination>li>a {
+  color: black;
+}
+
+.pagination>.active>a {
+  background: #CD853F;
+}
+
+.pagination>.active>a:hover {
+  background: #8B4513;
+}
+
+/* タブメニュー */
+
+#tab-menu li {
+  float: left;
+  list-style: none;
+  width: 20%;
+}
+
+#tab-menu a {
+  color: #3F250B;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #CD853F;
+  border: 2px solid #3F250B;
+  border-radius: 5px;
+}
+
+#tab-menu .active {
+  background: #8B4513;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+
+  .logo {
+    height: 45px;
+    padding-left: 25px;
+  }
+
+  /* ハンバーガーメニュー */
+
+  #hm-icon{
+    position: fixed;
+    right: 25px;
+    top: 18px;
+    z-index: 10;
+  }
+
+  .menu-trigger,
+  .menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+  }
+
+  .menu-trigger {
+    position: relative;
+    width: 46px;
+    height: 28px;
+  }
+
+  .menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  .menu-trigger span:nth-of-type(1) {
+    top: 0;
+  }
+
+  .menu-trigger span:nth-of-type(2) {
+    top: 12px;
+  }
+
+  .menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+  }
+
+  .menu-trigger.active span:nth-of-type(1) {
+    -webkit-transform: translateY(12px) rotate(-315deg);
+    transform: translateY(12px) rotate(-315deg);
+  }
+
+  .menu-trigger.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .menu-trigger.active span:nth-of-type(3) {
+    -webkit-transform: translateY(-12px) rotate(315deg);
+    transform: translateY(-12px) rotate(315deg);
+  }
+
+  .navbar-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #3F250B;
+    color: black;
+    width: 50%;
+    min-height: 100%;
+    display: none;
+    z-index: 9;
+  }
+
+  .navbar-right li{
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .navbar-right li:first-child{
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .navbar-right a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* 画像 */
+
+  .about-image {
+    height: 270px;
+    width: 270px;
+    margin: 30px 0;
+  }
+
+  .profile-image {
+    height: 200px;
+    width: 200px;
+    margin-top: 5px;
+  }
+
+  .pair-image {
+    height: 200px;
+    width: 200px;
+    margin-top: 10px
+  }
+
+  .show-profile-image {
+    height: 120px;
+    width: 120px;
+    margin-top: 5px;
+  }
+
+  .comment-profile-image {
+    height: 30px;
+    width: 30px;
+  }
+
+  .chat-profile-image {
+    height: 60px;
+    width: 60px;
+  }
+
+  .notification-profile-image {
+    height: 50px;
+    width: 50px;
+  }
+
+  /* トップページ */
+
+  .top-heading {
+    margin-top: 5px;
+  }
+
+  .top-title {
+    font-size: 55px;
+  }
+
+  .top-description {
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+
+  /* 概要ページ */
+
+  .about-page h1 {
+    font-size: 12px;
+  }
+
+  .about-page h4 {
+    font-size: 8px;
+  }
+
+  .about-description {
+    line-height: 1px;
+  }
+
+  .about-description h4 {
+    line-height: 15px;
+  }
+
+  .how-to-use {
+    margin-top: 30px;
+  }
+
+  .how-to-use-item {
+    padding-bottom: 2px;
+  }
+
+  /* 退会ページ */
+
+  .sp-none {
+    display: block;
+    padding-top: 10px;
+  }
+
+  /* 会員詳細ページ */
+
+  .customer-info p {
+    font-size: 12px;
+  }
+
+  .customer-info-data {
+    padding: 0;
+  }
+
+  .customer-info-text {
+    padding: 0;
+  }
+
+  /* 通知一覧ページ */
+
+  .notification-message {
+    padding-top: 5px;
+  }
+
+  /* チャットページ */
+
+  .my-message {
+    margin-left: 100px;
+  }
+
+  .opponent-message {
+    margin-right: 100px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+
+  body {
+    font-size: 10px;
+  }
+
+  .sp-non-title {
+    display: none;
+  }
+
+  .logo {
+    height: 35px;
+    padding-left: 15px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
+
+  h5 {
+    font-size: 8px;
+  }
+
+  h6 {
+    font-size: 6px;
+  }
+
+  p {
+    font-size: 8px;
+  }
+
+  ::placeholder {
+    font-size: 8px;
+  }
+
+  .btn{
+    font-size: 10px;
+  }
+
+  .form-control {
+    font-size: 10px;
+  }
+
+  /* ハンバーガーメニュー */
+
+  #hm-icon{
+    position: fixed;
+    right: 20px;
+    top: 15px;
+    z-index: 10;
+  }
+
+  .menu-trigger {
+    position: relative;
+    width: 36px;
+    height: 20px;
+  }
+
+  .menu-trigger span:nth-of-type(2) {
+    top: 8px;
+  }
+
+  .menu-trigger.active span:nth-of-type(1) {
+    -webkit-transform: translateY(8px) rotate(-315deg);
+    transform: translateY(8px) rotate(-315deg);
+  }
+
+  .menu-trigger.active span:nth-of-type(3) {
+    -webkit-transform: translateY(-8px) rotate(315deg);
+    transform: translateY(-8px) rotate(315deg);
+  }
+
+  /* 画像 */
+
+  .about-image {
+    height: 140px;
+    width: 140px;
+    margin: 20px 0;
+  }
+
+  .profile-image {
+    height: 150px;
+    width: 150px;
+    margin-top: 5px;
+  }
+
+  .pair-image {
+    height: 150px;
+    width: 150px;
+    margin: 5px
+  }
+
+  .show-profile-image {
+    height: 80px;
+    width: 80px;
+    margin-top: 5px;
+  }
+
+  .comment-profile-image {
+    height: 20px;
+    width: 20px;
+  }
+
+  .chat-profile-image {
+    height: 30px;
+    width: 30px;
+  }
+
+  .notification-profile-image {
+    height: 40px;
+    width: 40px;
+  }
+
+  /* バッジ */
+
+  .badge {
+    font-size: 7px;
+  }
+
+  .new-badge {
+    margin: 25px 0 0 5px;
+  }
+
+  /* トップページ */
+
+  .top-heading {
+    margin: 0px;
+  }
+
+  .top-title {
+    font-size: 32px;
+  }
+
+  .top-description {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  /* チャットページ */
+
+  .my-message {
+    margin-left: 50px;
+  }
+
+  .opponent-message {
+    margin-right: 50px;
+  }
+
+}

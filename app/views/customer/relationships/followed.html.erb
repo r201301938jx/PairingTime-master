@@ -1,0 +1,48 @@
+<% provide(:title, "フォロワー一覧") %>
+
+<div class="col-12 col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1">
+
+  <h2 class="heading text-center">フォロワー一覧</h2>
+
+  <% if @customers.count > 0 %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ニックネーム</th>
+        <th>投稿数</th>
+        <th>フォロー数</th>
+        <th>フォロワー数</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.nickname, customer_path(customer) %></td>
+        <td><%= customer.pairs.count %></td>
+        <td><%= customer.follower.count %></td>
+        <td><%= customer.followed.count %></td>
+        <td>
+          <%= link_to chat_path(customer.id) do %>
+          <p class="btn btn-brown faa-parent animated-hover">
+            <i class="fas fa-comments faa-wrench"></i> チャットを始める
+          </p>
+          <% end %>
+        </td>
+        <td>
+          <% if current_customer.following?(customer) %>
+          <%= link_to "フォローをやめる", customer_relationships_path(customer.id), method: :DELETE, class: "btn btn-danger" %>
+          <% else %>
+          <%= link_to "フォローする", customer_relationships_path(customer.id), method: :POST, class: "btn btn-brown" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center col-12 col-xs-12 col-sm-12"><%= paginate @customers %></div>
+  <% else %>
+  <h4>フォロワーはいません</h4>
+  <% end %>
+
+</div>

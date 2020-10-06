@@ -1,0 +1,32 @@
+<% provide(:title, "パスワード再発行") %>
+
+<div class="col-12 col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3">
+
+  <h2 class="heading text-center">パスワードをお忘れの方</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "customers/shared/error_messages", resource: resource %>
+
+  <div id="error_explanation">
+    <%= flash[:error] %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :"メールアドレス", class: "col-4 col-xs-4 col-sm-4" %>
+    <div class="col-8 col-xs-8 col-sm-8">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "xxxxxxxx@xxxx.com" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "パスワード再発行メールを送信", class: "btn btn-brown btn-block" %>
+  </div>
+
+  <% end %>
+
+  <br>
+  <div class="pull-right">
+    <%= link_to "ログイン画面に戻る", new_customer_session_path %>
+  </div>
+
+</div>

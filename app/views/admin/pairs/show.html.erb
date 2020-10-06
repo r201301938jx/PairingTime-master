@@ -1,0 +1,84 @@
+<% provide(:title, "投稿詳細") %>
+
+<%= render 'search_form' %>
+
+<div class="col-12 col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1">
+
+  <h2 class="heading text-center">投稿詳細</h2>
+
+  <div class="col-12 col-xs-12 col-sm-4 text-center">
+    <%= attachment_image_tag @pair, :image, fallback: "no_image.jpg", class: "pair-image circle"  %>
+  </div>
+  <div class="col-12 col-xs-12 col-sm-8">
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td>投稿ID</td>
+          <td><%= @pair.id %></td>
+        </tr>
+        <tr>
+          <td>タイトル</td>
+          <td><%= @pair.title %></td>
+        </tr>
+        <tr>
+          <td>説明</td>
+          <td><%= text_url_to_link(h(@pair.caption)).html_safe %></td>
+        </tr>
+        <tr>
+          <td>タグ</td>
+          <td>
+            <% @pair.tags.each do |tag| %>
+            <span class="label label-brown"><%= tag.name %></span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>投稿者</td>
+          <td><%= link_to @pair.customer.nickname, admin_customer_path(@pair.customer) %></td>
+        </tr>
+        <tr>
+          <td>投稿日</td>
+          <td><%= @pair.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td>お気に入り追加数</td>
+          <td><%= @pair.likes.count %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= link_to admin_pair_path(@pair), method: :DELETE do %>
+      <p class="btn btn-danger btn-block">
+        <i class="fas fa-trash-alt"> 削除</i>
+      </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-12 col-xs-12 col-sm-12 comment-section">
+    <div class="col-12 col-xs-12 col-sm-12 label label-brown">
+      <h3 class="comment-title"><i class="fas fa-comment-alt"></i> コメント<span class="badge comment-badge"><%= @pair.comments.count %></span></h3>
+    </div>
+    <div id="jscroll">
+      <div class="comment-list col-12 col-xs-12 col-sm-12">
+        <table>
+          <% @comments.each do |comment| %>
+          <tr class="comment">
+            <td>
+              <%= link_to admin_customer_path(comment.customer) do %>
+              <%= attachment_image_tag comment.customer, :profile_image, fallback: "no_customer_image.jpg", class: "comment-profile-image circle"  %><br>
+              <%= comment.customer.nickname %>
+              <% end %>
+            </td>
+            <td class="list-group">
+              <div class="list-group-item"><%= comment.text %></div>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+        <div><%= link_to_next_page @comments, '次のページ', class: "next" %></div>
+      </div>
+    </div>
+  </div>
+
+</div>
